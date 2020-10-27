@@ -52,8 +52,11 @@ namespace IntegraAdmin
             services.AddScoped<ISponsorCustomersRepository, SponsorCustomersRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
+            //services.AddDbContext<ApplicationDbContext>(options => options
+            //            .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDbContext<ApplicationDbContext>(options => options
-                        .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                        .UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

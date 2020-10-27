@@ -28,20 +28,16 @@ namespace IntegraAdmin.Controllers
     public class UsersController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-        private SignInManager<ApplicationUser> _signInManager;
         private readonly ISponsorRepository _sponsorRepo;
         private readonly IMapper _mapper;
 
         public UsersController(
             UserManager<ApplicationUser> userManager, 
-            SignInManager<ApplicationUser> signInManager, 
-            IOptions<ApplicationSettings> appSettings,
             ISponsorRepository sponsorRepository,
             IMapper mapper,
             IConfiguration configuration)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _sponsorRepo = sponsorRepository;
             _mapper = mapper;
             Configuration = configuration;

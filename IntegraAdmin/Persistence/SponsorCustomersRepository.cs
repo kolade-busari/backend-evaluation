@@ -1,13 +1,13 @@
 ﻿using IntegraAdmin.Core.Interfaces;
 using IntegraAdmin.Core.Models;
-using IntegraAdmin.Persistence;
+using IntegraAdmin.Core.Resources;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IntegraAdmin.Core.Resources
+namespace IntegraAdmin.Persistence
 {
     public class SponsorCustomersRepository : ISponsorCustomersRepository
     {
@@ -17,6 +17,8 @@ namespace IntegraAdmin.Core.Resources
         {
             _context = context;
         }
+
+
         public async Task AddCustomer(string sponsorUserId, Customer customer)
         {
             // get the sponsor
@@ -81,6 +83,9 @@ namespace IntegraAdmin.Core.Resources
                     customer.Products.Add(new CustomerProduct { ProductId = productId });
                 };
             }
+
         }
+
+
     }
 }
